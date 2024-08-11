@@ -1,0 +1,92 @@
+body {
+    background-image: url("/img/haikei.png"); /* 適切な背景画像に変更 */
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+header {
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li.choice {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    text-indent: -9999px; /* テキストを非表示にする */
+}
+
+.sun {
+    background-image: url("/img/sun.png"); /* 適切なパスに変更 */
+}
+
+.cloud {
+    background-image: url("/img/cloud.png"); /* 適切なパスに変更 */
+}
+
+.tori {
+    background-image: url("/img/tori.png"); /* 適切なパスに変更 */
+}
+
+#result {
+    margin: 20px 0;
+    font-size: 24px;
+}
+
+#stars {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    border-radius: 50%;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        top: -10px;
+    }
+    100% {
+        top: 300px;
+    }
+}
+
+#vegetableImage {
+    width: 100px; /* 適切なサイズに調整 */
+    margin-top: 20px;
+}
+
+#leftVegetableImage {
+    position: absolute;
+    left: 100px; /* 左からの位置を指定 */
+    top: 20%; /* 画面の縦中央に配置 */
+    width: 270px; /* 幅を調整 */
+    transform: translateY(-50%); /* 縦方向の中央に配置 */
+    display: none; /* デフォルトでは非表示 */
+}
+
+#rightVegetableImage {
+    position: absolute;
+    right: 100px; /* 右からの位置を指定 */
+    top: 20%; /* 画面の縦中央に配置 */
+    width: 270px; /* 幅を調整 */
+    transform: translateY(-50%); /* 縦方向の中央に配置 */
+    display: none; /* デフォルトでは非表示 */
+}

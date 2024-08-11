@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/css/sample.css">
+    <title>野菜占いゲーム</title>
+</head>
+<body>
+    <header>
+        <h1>野菜占いゲーム</h1>
+    </header>
+    <main>
+        <ul>
+            <li id="sun_btn" class="choice sun">太陽</li>
+            <li id="cloud_btn" class="choice cloud">雲</li>
+            <li id="tori_btn" class="choice tori">鳥</li>
+        </ul>
+        　　<div id="result"></div>
+        　　<div id="stars"></div>
+
+        <!-- 左右のイラスト用 img 要素を追加 -->
+        <img id="leftVegetableImage" src="" alt="左側に表示される野菜" style="display: none;">
+        <img id="rightVegetableImage" src="" alt="右側に表示される野菜" style="display: none;">
+
+        <img id="vegetable" src="" alt="野菜" style="display: none;">
+        
+        </main>
+   
+    <footer></footer>
+    <script>
+        // ボタン要素を取得
+        const sunBtn = document.getElementById('sun_btn');
+        const cloudBtn = document.getElementById('cloud_btn');
+        const toriBtn = document.getElementById('tori_btn');
+
+        // ランダムな野菜を決める関数
+        function getRandomVegetable() {
+            const vegetables = ['トマト', 'トウモロコシ', 'キュウリ'];
+            const randomIndex = Math.floor(Math.random() * vegetables.length);
+            return vegetables[randomIndex];
+        }
+
+        // ボタンをクリックしたときのイベントリスナーを追加
+        sunBtn.addEventListener('click', () => showVegetable('太陽'));
+        cloudBtn.addEventListener('click', () => showVegetable('雲'));
+        toriBtn.addEventListener('click', () => showVegetable('鳥'));
+
+        // 野菜を表示する関数
+        function showVegetable(choice) {
+            const vegetable = getRandomVegetable();
+            const resultDiv = document.getElementById('result');
+            const vegetableImg = document.getElementById('vegetable');
+            const leftVegetableImage = document.getElementById('leftVegetableImage');
+            const rightVegetableImage = document.getElementById('rightVegetableImage');
+            const starsDiv = document.getElementById('stars');
+
+        // 占い結果を表示
+            resultDiv.innerText = `${choice}を選びました！今日の野菜は${vegetable}です！`;
+           
+        // 星を降らせる
+            starsDiv.innerHTML = ''; // 既存の星をクリア
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                starsDiv.appendChild(star);
+            }
+
+         // 左右のイラストを設定
+            let leftImagePath = '';
+            let rightImagePath = '';
+
+            switch (vegetable) {
+                case 'トマト':
+                    leftImagePath = 'img/tomato.png';  // 左側のトマトの画像パス
+                    rightImagePath = 'img/tomato2.png'; // 右側のトマトの画像パス
+                    break;
+                case 'トウモロコシ':
+                    leftImagePath = 'img/toumorokosi.png';  // 左側のトウモロコシの画像パス
+                    rightImagePath = 'img/toumorokosi2.png'; // 右側のトウモロコシの画像パス
+                    break;
+                case 'キュウリ':
+                    leftImagePath = 'img/kyuuri.png';  // 左側のキュウリの画像パス
+                    rightImagePath = 'img/kyuuri2.png'; // 右側のキュウリの画像パス
+                    break;
+            }
+
+            // 左右の画像を表示
+            leftVegetableImage.src = leftImagePath;
+            leftVegetableImage.style.display = 'block';
+
+            rightVegetableImage.src = rightImagePath;
+            rightVegetableImage.style.display = 'block';
+        }
+        
+    </script>
+</body>
+</html>
