@@ -1,5 +1,5 @@
 body {
-    background-image: url("/img/haikei.png"); /* 適切な背景画像に変更 */
+    background-image: url("../img/haikei.png"); /* 適切な背景画像に変更 */
     background-size: cover;
     background-position: center;
     font-family: Arial, sans-serif;
@@ -27,15 +27,15 @@ li.choice {
 }
 
 .sun {
-    background-image: url("/img/sun.png"); /* 適切なパスに変更 */
+    background-image: url("../img/sun.png"); /* 適切なパスに変更 */
 }
 
 .cloud {
-    background-image: url("/img/cloud.png"); /* 適切なパスに変更 */
+    background-image: url("../img/cloud.png"); /* 適切なパスに変更 */
 }
 
 .tori {
-    background-image: url("/img/tori.png"); /* 適切なパスに変更 */
+    background-image: url("../img/tori.png"); /* 適切なパスに変更 */
 }
 
 #result {
